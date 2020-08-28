@@ -27,13 +27,16 @@ public class LoginPage {
     public void clickLogBut() {
         driver.findElement(loginButton).click();
     }
-    public void navigateTo(){
+
+    public void navigateTo() {
         driver.get("https://jira.hillel.it/secure/Dashboard.jspa");
     }
-    public boolean errorMessageIsPresent(String message){
+
+    public boolean errorMessageIsPresent(String message) {
         return driver.findElement(By.xpath("//*[contains(text(),'" + message + "')]")).isDisplayed();
     }
-    public void errorMessageIsDisplayed(){
+
+    public void errorMessageIsDisplayed() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(presenceOfElementLocated(By.id("usernameerror"))).isDisplayed();
     }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.WebDriverFactory;
+
 public class HomePage {
     private WebDriver driver = null;
     private By viewIssue = By.xpath("//*[@data-issue-key='WEBINAR-11962']");
@@ -23,7 +24,7 @@ public class HomePage {
 
     public void navigateTo() {
         driver.get("https://jira.hillel.it/secure/Dashboard.jspa");
-        driver.manage().addCookie(new Cookie("JSESSIONID","A1BE4B39D62947CACF8B9CF023B28B84"));
+        driver.manage().addCookie(new Cookie("JSESSIONID", "A1BE4B39D62947CACF8B9CF023B28B84"));
     }
 
     public boolean userIconIsPresent() {
@@ -48,7 +49,8 @@ public class HomePage {
                 wait.until(ExpectedConditions.elementToBeClickable(elementToBeClicked));
                 driver.findElement(elementToBeClicked).click();
             }
-        } }
+        }
+    }
 
     public WebElement issueIsPresent() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -65,9 +67,8 @@ public class HomePage {
         clickOnElementWithRetry(createIssueButton, createIssueTitle, 3, 3);
     }
 
-    public void CreateIssueWindowNotPresent(){
+    public void CreateIssueWindowNotPresent() {
         boolean notPresent = ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(createIssueTitle)).apply(WebDriverFactory.getDriver());
         Assert.assertTrue(notPresent);
     }
 }
-

@@ -5,12 +5,15 @@ import pages.CreateNewTicketWindow;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.WebDriverFactory;
+
 import static org.testng.Assert.assertTrue;
+
 public class CreateIssue {
 
     HomePage homePage = null;
     LoginPage loginPage = null;
     CreateNewTicketWindow createNewTicketWindow = null;
+
     @BeforeMethod
     public void setUp() {
         WebDriverFactory.createInstance("Chrome");
@@ -20,9 +23,6 @@ public class CreateIssue {
         createNewTicketWindow = new CreateNewTicketWindow(WebDriverFactory.getDriver());
 
         homePage.navigateTo();
-//        loginPage.enterUserName("DianaSurovtseva");
-//        loginPage.setUserPassInput("DianaSurovtseva");
-//        loginPage.clickLogBut();
     }
 
 
